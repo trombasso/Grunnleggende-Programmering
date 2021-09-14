@@ -1,3 +1,3 @@
 # Grunnleggende-Programmering
 
-This is my Readme
+Files from curriculum at UiT, and obligatory assignements.
