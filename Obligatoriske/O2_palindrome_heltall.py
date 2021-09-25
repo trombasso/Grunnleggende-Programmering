@@ -12,9 +12,6 @@ def reverse(number):
 def is_palindrome(user_input):
     input_list = list(user_input)
     input_list_reversed = reverse(input_list)
-
-    # input_list_reversed = list(user_input)
-    # input_list_reversed.reverse()
     if input_list_reversed == user_input:
         return True
     else:
