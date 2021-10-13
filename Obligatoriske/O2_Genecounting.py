@@ -1,13 +1,16 @@
+# Iterating through input, if string countains valid gene-strings it outputs result.
 def check_if_gene(genome):
     genome_start = 0
     genome_end = len(genome)
     genome_length = len(genome)
     sequenze = []
-    positive_pos = 10000
+    start_point = []
+    end_point = []
+    positive_pos = 100000
 
+    # Checkloop, continues as long as ATG is found in string.
     while "ATG" in genome[genome_start:genome_length]:
         genome_start += genome[genome_start:genome_length].find("ATG") + 3
-
         x = genome[genome_start:genome_length]
         if x.find("ATG") != -1:
             ATG_pos = x.find("ATG") + genome_start + 1
@@ -42,24 +45,36 @@ def check_if_gene(genome):
         elif TGA_pos < ATG_pos and TGA_pos < TAA_pos and TGA_pos < TAG_pos:
             genome_end = TGA_pos - 1
 
-        sequenze.append(genome[genome_start : (genome_end - (len(genome[genome_start:genome_end]) % 3))])
+        if len((genome[genome_start:genome_end])) % 3 == 0:
+            sequenze.append(genome[genome_start:genome_end])
+            start_point.append(genome_start)
+            end_point.append(genome_end)
         genome_start = genome_end
 
     if sequenze:
-        print("\nGenome strings found:")
-        print("-------------------------")
-        for x in sequenze:
-            if x == "":
-                pass
-            else:
-                print(x)
-        print("-------------------------\n")
+        print(f"\nGen strings found in {len(genome)} chars provided:")
+        print("---------------------------------------------------")
+        for x in range(0, len(sequenze)):
+            print(start_point[x], sequenze[x], end_point[x])
+        print(f"\n\nTotal number of strings found: {len(sequenze)}.")
+        print("---------------------------------------------------")
     else:
-        print("\nNo gene is found.")
+        print("\nNo gene found.\n")
 
 
 def main():
-    genome = input("Enter a genome string: ").upper()
+    # genome = input("Enter a genome string: ").upper()
+
+    # genome = (
+    #     "atggctcttcttaaggccaataaggatctcatttccgcaggattgaaggagttcagcgttctgctgaatcagcaggtcttcaatgatcctctcgtctctgaagaagacatggtgactgtggtggaggactggatgaacttctacatcaactattacaggcagcaggtgacaggggagccccaagagcgagacaaggctctgcaggagcttcggcaagagctgaacactctggccaaccctttcctggccaagtacagggacttcctgaagtctcatgagctcccgagtcacccaccgccctcctcctag"
+    # ).upper()
+
+    # genome = "TTATGTTTTAAGGATGGGGCGTTAGTT"
+
+    genome = (
+        "atgaaaaaagcaaaattattcggttttagtttgattgcattaggtttatcagtttcacttgcagcatgtggtggtggcaaaggcaaaaccgctgaaagcggcggtggcaaaggggatgcagcgcatagtgctgtaatcattacagatacaggcggcgtggatgacaagtcgttcaaccaatcttcttgggaaggattgcaagcttggggtaaagaacatgatttaccagaaggttcaaaagggtatgcatatattcaatcgaatgatgcagctgactatacaaccaatattgaccaagcggtatcaagtaaattcaacacaatctttggtattggctacttgctaaaagatgcaatttcttctgcagcagatgccaaccctgatacaaactttgttttaatcgatgatcaaatcgatggcaaaaagaatgtcgtttctgcaacatttagagataatgaagcagcttacttagccggtgttgctgctgcaaatgaaacaaaaacgaacaaagtcggttttgttggtggtgaagaaggggtcgtaattgaccgtttccaagctggttttgaaaaaggtgtggctgatgctgcgaaagaattaggtaaagaaattactgttgatacgaaatatgcggcttcatttgctgatcctgccaaagggaaagctttagctgctgcaatgtaccaaaacggcgttgatatcatcttccatgcttctggtgcgactggacaaggggtcttccaagaagcaaaagacttgaatgaatcaggttctggcgacaaagtttgggtaatcggcgttgaccgcgatcaagatgctgatggcaagtacaaaacaaaagacggcaaagaagacaacttcacgttaacttcaacgcttaaaggtgtcggcacagcggttcaagatattgccaaccgtgcgttagaagacaaattccctggtggcgaacatttagtttatggattaaaagatggtggcgttgacttaacagacggctatttaaacgacaaaacaaaagaagctgttaaaacagcaaaagataaagtaatctcaggtgacgtaaaagtcccagaaaaaccagaataa"
+    ).upper()
+
     check_if_gene(genome)
 
 
