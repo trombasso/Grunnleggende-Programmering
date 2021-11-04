@@ -2,9 +2,6 @@ def locate_largest(lst1):
     lst2 = []
     # Appends the index of the row containing the highest number
     lst2.append(list(map(max, lst1)).index(max(list(map(max, lst1)))))
-
-    lst2 = []
-
     # Appends the index of highest number in row.
     lst2.append(lst1[lst2[0]].index(max(lst1[lst2[0]])))
     largest_elem = lst1[lst2[0]][lst2[1]]
