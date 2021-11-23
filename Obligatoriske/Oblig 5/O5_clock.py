@@ -81,12 +81,9 @@ class Clock:
     def inc_year(self):
         self.year += 1
 
-    def clock_as_string(self):  # Returns a string representation of the clock in this format: "01:02:2021:00:00:00",
-        print(f"{self.day:02d}.{self.month:02d}.{self.year:04d} kl:{self.hour:02d}.{self.min:02d}.{self.sec:02d}")
+    def clock_as_string(self):
+        return str(f"{self.day:02d}.{self.month:02d}.{self.year:04d} kl:{self.hour:02d}.{self.min:02d}.{self.sec:02d}")
 
 
 if __name__ == "__main__":
-    # myclock = Clock(28, 2, 2000, 23, 59, 59)
-    myclock = Clock()
-    myclock.inc_second()
-    myclock.clock_as_string()
+    ...
