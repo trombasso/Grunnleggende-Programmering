@@ -24,7 +24,7 @@ def numfilter(numbers):
 
 
 def main():
-    numfilter(input("\nPlease input integers with space between (i.e. 4 5 33 33 7 8 8): "))
+    numfilter(input("\nEnter number: "))
 
 
 if __name__ == "__main__":

@@ -29,11 +29,10 @@ class Account:
         self.__annual_interest_rate = value
 
     def get_monthly_interest_rate(self):
-        monthly_interest_rate = self.annual_interest_rate / 12
-        return monthly_interest_rate
+        return self.annual_interest_rate / 12
 
     def get_monthly_interest(self):
-        return self.balance * self.get_monthly_interest_rate()
+        return self.get_monthly_interest_rate() * (self.balance / 100)
 
     def withdraw(self, value):
         self.balance -= value
@@ -42,47 +41,16 @@ class Account:
         self.balance += value
 
 
-"""
-Use this formula to calculate the monthly interest: balance * monthly_interestRate.
-
-monthly_interestRate is annual_interestRate/12, 
-Note that annualInterestRate is a percent (like 4.5%). You need to divide it by 100.)
-
-Write a test program that creates an Account object with an account id of 1122, 
-a balance of $20,000, and an annual interest rate of 4.5%. Use the withdraw method 
-to withdraw $2,500, use the deposit method to deposit $3,000, and print the id, balance, m
-onthly interest rate, and monthly interest.
-
-
-
-"""
-
-
 def main():
 
-    konto1 = Account()
-    konto1.id(1122)
-    konto1.balance(20000)
-    konto1.annual_interest_rate(4.5)
+    konto1 = Account(1122, 20000, 4.5)
 
-    konto1.whitdraw(2500)
+    konto1.withdraw(2500)
     konto1.deposit(3000)
-    print(
-        f"konto id {konto1.id()}, Monthly Interest Rate/interest: {konto1.get_monthly_interest_rate()}, \
-        {konto1.get_monthly_interest()}"
-    )
-
-    """
-    create account, 
-    id 1122
-    balance $20.000,-
-    annual interest rate 4,5
-    
-    withdraw $3.000,-
-    print id, balance, monthly interest rate and monthly interest.
-    """
-
-    pass
+    print("ID", konto1.id, "\n")
+    print("Balanse", konto1.balance, "\n")
+    print("Renter", konto1.get_monthly_interest(), "\n")
+    print("Månedlig R", konto1.get_monthly_interest_rate(), "\n")
 
 
 if __name__ == "__main__":

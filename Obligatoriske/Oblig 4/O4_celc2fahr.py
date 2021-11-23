@@ -1,22 +1,36 @@
 import tkinter as tk
 
-win = tk.Tk()  # Create a tkinter master frame
-win.title("Fahrenheit to Celcius Converter")
-win.geometry("450x150")  # Set the size of the window
-win.resizable(False, False)  # Make the window size fixed
 
-mainframe = tk.Frame(win)
+def calculate(*args):
+    try:
+        value = float(celcius.get())
+        fahrenheit.set(int(value * 1.8 + 32))
+    except ValueError:
+        pass
+
+
+root = tk.Tk()
+root.title("Celcius to Fahrenheit")
+root.geometry(
+    "300x120",
+)
+root.resizable(False, False)
+
+mainframe = tk.Frame(root, width=400, height=150)
 mainframe.pack()
 
-header = tk.Label(mainframe, text="Celcius to Fahrenheit")
-inpt = tk.Entry(mainframe, width=20)
-button = tk.Button(mainframe, text="Convert")
-output = tk.Label(mainframe, text="Test")
+celcius = tk.StringVar(mainframe, value="Celcius?")
+celcius_entry = tk.Entry(mainframe, width=10, textvariable=celcius)
+celcius_entry.grid(column=0, row=2, columnspan=3, pady=10)
 
-header.grid(row=0, column=0, columnspan=3)
-inpt.grid(row=1, column=0)
-button.grid(row=1, column=1)
-output.grid(row=1, column=2)
+fahrenheit = tk.StringVar(value="X")
 
+tk.Button(mainframe, text="Calculate", command=calculate).grid(column=0, row=3, columnspan=3)
+tk.Label(mainframe, text="Is").grid(column=0, row=4)
+tk.Label(mainframe, textvariable=fahrenheit).grid(column=1, row=4)
+tk.Label(mainframe, text="degrees fahrenheit.").grid(column=2, row=4)
 
-win.mainloop()
+celcius_entry.focus()
+root.bind("<Return>", calculate)
+
+root.mainloop()

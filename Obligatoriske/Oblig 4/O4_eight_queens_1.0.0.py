@@ -10,7 +10,7 @@ class EQ:
 
     def is_solved(self):
         """
-        "is_solved" checks if queens are placed correctly on the board.
+        is_solved" checks if queens are placed correctly on the board.
         --------------------------------------------------------------
         1) creates a matrix where queens are 1 and empty spaces are 0
         2) Sums the board diagonally, starts in the upper left corner and the upper right corner and
@@ -73,6 +73,16 @@ class EQ:
         column = []
         for x in range(len(theboard)):
             column.append(sum(i[x] for i in theboard))
+
+        # for testing
+        # for elem in diagonal1:
+        #     print(elem)
+        # for elem in diagonal2:
+        #     print(elem)
+        # for elem in row:
+        #     print(elem)
+        # for elem in column:
+        #     print(elem)
 
         # Collects all sums to a list.
         summary_check = []
