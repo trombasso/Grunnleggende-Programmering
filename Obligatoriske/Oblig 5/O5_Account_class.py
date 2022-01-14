@@ -44,7 +44,6 @@ class Account:
 def main():
 
     konto1 = Account(1122, 20000, 4.5)
-
     konto1.withdraw(2500)
     konto1.deposit(3000)
     print("ID", konto1.id, "\n")
