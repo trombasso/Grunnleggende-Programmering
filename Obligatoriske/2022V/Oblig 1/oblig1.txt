@@ -1,0 +1,5 @@
+Oppgave 11.1 i Liang
+
+(Display a selected shape) Write a program that contains a combo box and a canvas. 
+The combo box shows five strings: rectangle, oval, arc, polygon, and line. 
+The canvas displays a shape according to the selection in the combo box, as shown in Figure 11.13.
