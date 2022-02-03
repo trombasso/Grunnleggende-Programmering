@@ -1,5 +1,0 @@
-(Two movable vertices and their distances) Write a program that displays two circles with radius 20 at locations 
-(20, 20) and (120, 50) with a line connecting the two circles, as shown in Figure 11.25. The distance between 
-the circles is displayed along the line. The user can drag a circle. When that happens, the circle and its line 
-are moved and the distance between the circles is updated. Your program should not allow the circles to get too close. 
-Keep them at least 70 pixels apart between the two circles’ centers.
