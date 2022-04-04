@@ -5,7 +5,7 @@ def replace_text(filename, old_string, new_string):
     file_dir = os.path.dirname(__file__)
     with open(file=os.path.join(file_dir, filename)) as file:
         filedata = file.read()
-        if new_string in filedata:
+        if old_string in filedata:
             filedata = filedata.replace(old_string, new_string)
             with open(file=os.path.join(file_dir, filename), mode="w") as file:
                 file.write(filedata)

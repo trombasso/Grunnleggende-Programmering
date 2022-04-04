@@ -16,7 +16,7 @@ def string_to_sorted_ordlist(string):
 # Check if s1 and s2 are anagrams
 def is_anagram(s1, s2):
     global lst1, lst2
-    lst1 =string_to_sorted_ordlist(s1)
+    lst1 = string_to_sorted_ordlist(s1)
     lst2 = string_to_sorted_ordlist(s2)
     if lst1 == lst2:
         return True

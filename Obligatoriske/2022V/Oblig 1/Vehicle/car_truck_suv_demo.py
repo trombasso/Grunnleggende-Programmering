@@ -1,6 +1,7 @@
 # This program creates a Car object, a Truck object,
 # and an SUV object.
 from vehicle_errors import LengthError, ModelError, MilageError, DoorError, DriveTypeError, PassCapError
+from operator import attrgetter
 import vehicles
 import os
 from os import name, system
@@ -70,10 +71,12 @@ def read_inventory():
 
 def save_inventory(vehicles_list):
     print("\nSaving to disk...")
-    sleep(1)
+    vehicles_list = sorted(vehicles_list, key=attrgetter("make"))
+
     file_dir = os.path.dirname(__file__)
     with open(file=os.path.join(file_dir, "vehicles.dat"), mode="wb") as file:
         pickle.dump(vehicles_list, file)
+    sleep(1)
 
 
 def main():
